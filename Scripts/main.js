@@ -18,7 +18,7 @@ function copy(){
   //just places image over the top of previous
   //need to figure out how to clear canvas for this and the gen algo
   var get = document.getElementById("pic");
-  ctx.drawImage(get, 10, 10, 50, 50);
+  ctx.drawImage(get, 10, 10, 60, 60);
   //var copyImg =
 }
 
@@ -33,7 +33,8 @@ function create() {
 }
 
 var mutationRate;
-var totalPopulation = 10;
+var totalPopulation = 100;
+var generation = 0;
 
 var population = [];
 var matingPool = [];
@@ -97,16 +98,21 @@ var newImg;
     //var str = best.genes.join("");
     //console.log(str + "HIYA " + best.fitness + " " + matingPool.length);
     //loops
-    if(best.fitness == 1){
-      console.log("yaya we got it " + str);
-    }else{
-      newImg = ctx.createImageData(50, 50);
-      for(let i = 0; i < best.genes.length; i++){
-        newImg.data[i] = best.genes[i];
+    //if(best.fitness == 1){
+      //console.log("yaya we got it " + str);
+      if(generation = 50){
+        console.log("hi" + generation);
+        generation++;
+        draw();
+      }else{
+        console.log("made" + generation);
+        newImg = ctx.createImageData(50, 50);
+        for(let i = 0; i < best.genes.length; i++){
+          newImg.data[i] = best.genes[i];
+        }
+        ctx.putImageData(newImg, 10, 100);
+        //draw();
       }
-      context.putImageData(newImg, 10, 100);
-      draw();
-    }
 
 
 
